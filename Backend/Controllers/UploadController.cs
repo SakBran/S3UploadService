@@ -16,14 +16,8 @@ namespace Backend.Controllers
     [Route("api/[controller]")]
     public class UploadController : ControllerBase
     {
-        private readonly IWebHostEnvironment _hostingEnvironment;
-
-
-        public UploadController(IWebHostEnvironment hostingEnvironment)
+        public UploadController()
         {
-
-            _hostingEnvironment = hostingEnvironment;
-
         }
         // GET: api/upload
         [HttpPost]
