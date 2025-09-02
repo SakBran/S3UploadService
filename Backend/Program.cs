@@ -26,7 +26,9 @@ internal class Program
         }
         else
         {
+            app.UseSwagger();
             app.UseDeveloperExceptionPage();
+            app.UseSwaggerUI();
             app.UseHsts();
         }
 
