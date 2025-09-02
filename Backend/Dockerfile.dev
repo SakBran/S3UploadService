@@ -1,0 +1,31 @@
+# ---------- Build / Dev stage ----------
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS dev
+
+# ---- 1. Set the desired TZ up front ----
+#   • `TZ` env var is recognised by many base images and by .NET itself.
+ENV TZ=Asia/Yangon
+
+# ---- 2. Install tzdata and fix /etc/localtime ----
+#   • dotnet/sdk image is Debian-based, so we use apt.
+#   • Mark tzdata as non-interactive to prevent prompts.
+RUN apt-get update \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends tzdata \
+    && ln -fs /usr/share/zoneinfo/$TZ /etc/localtime \
+    && dpkg-reconfigure -f noninteractive tzdata \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# ---------- Your existing steps ----------
+WORKDIR /app
+
+COPY . .
+RUN dotnet restore
+RUN dotnet build
+
+# ---- 3. EF tools ----
+RUN dotnet tool install --global dotnet-ef
+ENV PATH="$PATH:/root/.dotnet/tools"
+
+EXPOSE 5000 5001
+
+CMD ["sh", "-c", "dotnet ef database update && dotnet watch run --urls http://0.0.0.0:5000"]

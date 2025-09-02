@@ -1,0 +1,171 @@
+/* Certificate.css */
+
+@page {
+    size: A4 landscape;
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #f2efe8;
+    font-family: 'Georgia', serif;
+    color: #333;
+}
+
+.certificate {
+    width: 297mm;
+    height: 210mm;
+    margin: auto;
+    margin-top: 2rem;
+    background: #ffffff;
+    padding: 48px 60px;
+    border: 20px solid #c9a84e;
+    /* Mold Goldrish */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.header {
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 40px;
+    font-weight: bold;
+    color: #a7802f;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.header h2 {
+    font-size: 18px;
+    font-style: italic;
+    margin-top: 5px;
+    color: #5e5438;
+}
+
+.logo {
+    height: 85px;
+    margin: 20px auto 10px auto;
+}
+
+.body-content {
+    text-align: center;
+    font-size: 20px;
+    line-height: 1.8;
+    max-width: 85%;
+    margin: 0 auto;
+}
+
+.recipient-name {
+    margin: 32px 0;
+    font-size: 34px;
+    font-weight: bold;
+    color: #2e2e2e;
+    text-decoration: underline;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.footer-block {
+    flex: 1;
+    text-align: center;
+}
+
+.signature-line {
+    border-top: 2px solid #a6803f;
+    width: 80%;
+    margin: 0 auto 6px auto;
+}
+
+.signature-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #5e5438;
+}
+
+.seal {
+    font-size: 16px;
+    font-weight: 600;
+    font-style: italic;
+    color: #5e5438;
+}
+
+.qr-code {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.qr-code img {
+    width: 100px;
+    height: 100px;
+}
+
+.qr-label {
+    font-size: 12px;
+    color: #6e6e6e;
+}
+
+.control{
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+@media print {
+    body * {
+        visibility: hidden;
+        /* Hide all elements by default */
+    }
+
+    .control{
+        display: none;
+    }
+
+    .certificate,
+    .certificate * {
+        visibility: visible;
+    }
+
+    .certificate {
+        width: 297mm;
+        height: 210mm;
+        margin: auto;
+        background: #ffffff;
+        padding: 48px 60px;
+        border: 20px solid #c9a84e;
+        /* Mold Goldrish */
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    /* If you have headers/footers on the main page that you want to hide, ensure they are hidden */
+    header,
+    footer,
+    nav,
+    aside,
+    #sidebar,
+    .non-printable-elements {
+        display: none !important;
+    }
+
+    /* Ensure images and other specific elements inside certificate print correctly */
+    .certificate img {
+        display: inline-block;
+        /* Or block, depending on layout needs */
+    }
+}

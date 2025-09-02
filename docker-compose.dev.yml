@@ -1,0 +1,55 @@
+version: '3.9'
+
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: dev-sqlserver
+    ports:
+      - "1433:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Saobran131994
+      - MSSQL_PID=Express
+    volumes:
+      - /Users/saobranaung/Database/Template/DB:/var/opt/mssql/data
+    networks:
+      - app-network
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: ./Backend
+      dockerfile: Dockerfile.dev
+    ports:
+      - "5001:5000"
+    volumes:
+      - ./Backend:/app
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=db;Database=TemplateDB;User=sa;Password=Saobran131994;MultipleActiveResultSets=true;TrustServerCertificate=True;
+    networks:
+      - app-network
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: ./Frontend
+      dockerfile: dockerfile.dev
+    ports:
+      - "3000:5173"
+    networks:
+      - app-network
+    depends_on:
+      - backend
+    environment:
+      - VITE_BASE_URL=http://localhost:5001/api/
+
+networks:
+  app-network:
+    external: true
+    # networks and other services (e.g., db) can be added as needed
+    #Run and Build
+    # docker compose -f docker-compose.dev.yml up --build
+    # docker compose -f docker-compose.dev.yml up -d
+    # docker compose -f docker-compose.dev.yml up

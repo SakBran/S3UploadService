@@ -1,0 +1,10 @@
+services:
+  react-app:
+    build:
+      context: .
+      dockerfile: dockerfile
+    ports:
+      - "3000:80"
+    restart: unless-stopped
+    # To run this Docker Compose configuration in production, use the following command:
+    # docker compose -f docker-compose.production.yml up -d

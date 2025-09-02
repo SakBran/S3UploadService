@@ -1,0 +1,8 @@
+.page-header-breadcrumbs .ant-breadcrumb-link {
+  text-transform: capitalize !important;
+  cursor: default;
+}
+
+.ant-dropdown .ant-dropdown-menu-item .ant-dropdown-menu-title-content {
+  text-transform: capitalize !important;
+}

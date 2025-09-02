@@ -1,0 +1,10 @@
+
+.hoverable-item {
+  cursor: pointer;
+  transition: background-color 0s;
+}
+
+.hoverable-item:hover {
+  border-radius: 10px;
+  background-color: #cdf0fd; /* Change this to your desired hover color */
+}

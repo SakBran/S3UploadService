@@ -1,0 +1,185 @@
+/* Global Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    /* Modern font */
+    /* color: #333; */
+    /* Darker text for readability */
+}
+
+th,
+td {
+    border-bottom: 1px solid #e0e0e0;
+    /* Lighter border color */
+    text-align: left;
+    padding: 0.8rem 1rem;
+    /* More padding for better spacing */
+    /* min-height: 10px; */
+    min-width: 50px;
+    vertical-align: middle;
+    /* Align content nicely */
+}
+
+th {
+    background-color: #FAFAFA;
+    /* Light background for headers */
+    font-weight: 600;
+    /* Slightly bolder headers */
+    color: #555;
+    /* Slightly darker text for headers */
+    cursor: pointer;
+    /* Indicate sortable columns */
+    position: relative;
+    /* For sort icons */
+}
+
+th:hover {
+    background-color: #eee;
+    /* Subtle hover effect on headers */
+}
+
+/* Add sort icons styling */
+th span {
+    margin-left: 0.5rem;
+    font-size: 0.8em;
+    color: #3f90ff;
+    /* Keep your existing blue color */
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Alternating row colors for better readability */
+
+
+tbody tr:hover {
+    background-color: #f0f8ff;
+    /* Light blue on hover for rows */
+    transition: background-color 0.2s ease-in-out;
+}
+
+/* Table Wrapper (already good, just ensure it works with new padding) */
+.container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+}
+
+.table-container {
+    overflow-x: auto;
+    background-color: #ffffff;
+
+}
+
+.table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+    /* Remove outer border, shadow handles it */
+}
+
+.table-container th,
+.table-container td {
+    padding: 0.8rem 1rem;
+    /* Consistent padding */
+    /* border: 1px solid #e0e0e0; */
+    /* Consistent border color */
+}
+
+/* Custom Text Colors */
+.red-text {
+    color: #d9534f;
+    /* A more standard red for error/warning */
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 0.5rem;
+    /* More space above pagination */
+    padding: 0.5rem 0;
+    /* Some vertical padding */
+}
+
+
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+
+    .form-container,
+    .antdFormContainer {
+        /* Apply to both if .form-container is still used elsewhere */
+        justify-content: center;
+        flex-direction: column;
+        /* Stack items vertically */
+        align-items: stretch;
+        /* Stretch items to full width */
+        gap: 1rem;
+        /* More space between stacked items */
+    }
+
+    .form-container select,
+    .form-container input[type="text"],
+    .antdFormContainer .ant-select,
+    /* Target Ant Design Select */
+    .antdFormContainer .ant-input,
+    /* Target Ant Design Input */
+    .antdFormContainer .ant-btn
+
+    /* Target Ant Design Button */
+        {
+        width: 100%;
+        max-width: none;
+        /* Remove max-width restriction for full width */
+    }
+
+
+    th,
+    td {
+        padding: 0.6rem 0.8rem;
+        /* Slightly less padding on small screens */
+    }
+}
+
+
+
+
+
+
+/* Container for the entire row */
+.filterSearchRow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Column for the filter select */
+.column {
+    flex: 1 1 48%;
+    /* Takes about half width, wraps on small screens */
+    min-width: 200px;
+}
+
+
+/* Container for the search input and button */
+.searchInputGroup {
+    display: flex;
+}
+
+/* Styles for the filter query display */
+.filterQueryDisplay {
+    width: 100%;
+    margin-top: 8px;
+}
+
+.form-container {
+    overflow-x: auto;
+    border-radius: 8px;
+    padding: 5px;
+}

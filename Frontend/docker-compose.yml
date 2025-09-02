@@ -1,0 +1,13 @@
+services:
+  react-dev:
+    build:
+      context: .
+      dockerfile: dockerfile.dev
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - "3000:5173"  # host:container
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    command: npm run dev
