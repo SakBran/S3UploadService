@@ -14,9 +14,9 @@ namespace Backend.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class UploadController : ControllerBase
+    public class UploadEcomRegController : ControllerBase
     {
-        public UploadController()
+        public UploadEcomRegController()
         {
         }
         [HttpPost]
