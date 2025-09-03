@@ -31,7 +31,9 @@ namespace Backend.Controllers
                 foreach (Microsoft.AspNetCore.Http.IFormFile file in httpRequest.Form.Files)
                 {
                     AmazonS3Client s3Client = new AmazonS3Client(
+                        //S3accessKey
                         "AKIAXOGA72CD2GT3UB53",
+                        //S3secretKey
                         "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",
                         new AmazonS3Config
                         {
@@ -62,7 +64,9 @@ namespace Backend.Controllers
                                 TransferUtilityUploadRequest fileTransferUtilityRequest = new TransferUtilityUploadRequest
                                 {
                                     InputStream = stream,
-                                    BucketName = "vms-blob.myanmartradenet.com",
+                                    //BucketName
+                                    BucketName = "tn2-blob.myanmartradenet.com",
+                                    //S3 Path
                                     Key = "prod/" + filename
                                 };
 

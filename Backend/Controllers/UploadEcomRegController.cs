@@ -62,7 +62,7 @@ namespace Backend.Controllers
                                 TransferUtilityUploadRequest fileTransferUtilityRequest = new TransferUtilityUploadRequest
                                 {
                                     InputStream = stream,
-                                    BucketName = "vms-blob.myanmartradenet.com",
+                                    BucketName = "ecomreg-blob.ecomreg.gov.mm",
                                     Key = "prod/" + filename
                                 };
 
