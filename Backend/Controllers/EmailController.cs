@@ -13,6 +13,7 @@ namespace Backend.Controllers
     [Route("api/[controller]")]
     public class EmailController : ControllerBase
     {
+        [HttpPost]
         public async Task<IActionResult> SendEmail(EmailDTO data)
         {
             var apiKey = data.apiKey;
